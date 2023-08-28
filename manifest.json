@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "AdBlocker Extension",
+  "version": "1.0.0",
+  "version_name": "1.0 beta",
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "adBlocker",
+        "enabled": true,
+        "path": "rules.json"
+      }
+    ]
+  },
+  "permissions": ["declarativeNetRequest"],
+  "host_permissions": ["<all_urls>"],
+  "icons": {
+    "16": "badge.png",
+    "48": "badge.png",
+    "128": "badge.png"
+  }
+}
