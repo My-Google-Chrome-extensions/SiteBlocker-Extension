@@ -1,9 +1,3 @@
-// Check if a given URL is in HTTP or HTTPS format
-function isHttpOrHttpsUrl(input) {
-    const urlPattern = /^(http(s)?:\/\/)([a-zA-Z0-9]+\.)?[a-zA-Z0-9]+\.[a-zA-Z]{2,}(\/\S*)?$/;
-    return urlPattern.test(input);
-}
-
 // Remove duplicate items from an array and return a new array with unique elements
 function uniqueArray(arr) {
     return Array.from(new Set(arr));
@@ -109,12 +103,19 @@ document.querySelector("#close").addEventListener("click", () => {
 // Add a new site to the list
 document.querySelector("#add").addEventListener("click", () => {
     let site = document.querySelector("#site").value;
-    if (!isHttpOrHttpsUrl(site))
-        return alert("Site is invalid!");
+    try {
+        new URL(site)
+    } catch (e) {
+        return alert(e.message);
+    }
 
-    const url = new URL(site);
+    let url = new URL(site);
 
-    site = `${url.hostname}${url.pathname}`;
+    if (`${url.hostname}${url.pathname}`.endsWith("/")) {
+        url = `${url.hostname}${url.pathname}`.slice(0, -1);
+    }
+
+    site = url;
     chrome.storage.local.get("data", function (retrieved_data) {
         let urls = retrieved_data.data ? JSON.parse(retrieved_data.data) : [];
 
