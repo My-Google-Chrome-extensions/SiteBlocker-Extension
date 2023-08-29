@@ -13,15 +13,7 @@
       "128": "badge.png"
     }
   },
-  "declarative_net_request": {
-    "rule_resources": [
-      {
-        "id": "adBlocker",
-        "enabled": true,
-        "path": "rules.json"
-      }
-    ]
-  },
+
   "permissions": [
     "declarativeNetRequest",
     "storage"
