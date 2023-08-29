@@ -59,6 +59,15 @@ function blockUpdate() {
 blockUpdate();
 
 // Load and display stored sites from Chrome storage
+chrome.storage.local.get("tmp", function (retrieved_data) {
+    let urlsTmp = retrieved_data.tmp ? JSON.parse(retrieved_data.tmp) : [];
+    if (urlsTmp.length) {
+        document.body.querySelector("#pause").textContent = "Play"
+        document.body.querySelector(".toolbar").style.display = "none"
+        document.body.querySelector("ul").style.display = "none"
+        document.body.style.minHeight = "0"
+    }
+});
 chrome.storage.local.get("data", function (retrieved_data) {
     if (retrieved_data.data) {
         const data = JSON.parse(retrieved_data.data);
@@ -132,24 +141,29 @@ document.querySelector("#add").addEventListener("click", () => {
     });
 });
 
-// Init
-chrome.storage.local.get("install", function (retrieved_data) {
-    if (!retrieved_data.install) {
-        document.querySelector(".loader").style.display = "block";
+function updateData() {
+    chrome.storage.local.get("data", function (retrieved_data) {
         fetch("https://raw.githubusercontent.com/My-Google-Chrome-extensions/SiteBlocker-Extension/main/rules.json")
             .then(response => response.json())
             .then(data => {
                 chrome.storage.local.set({
-                    install: "1"
+                    install: "1",
+                    updateDate: new Date().getTime().toString(),
                 }, () => {
-                    chrome.storage.local.get("data", function (retrieved_data) {
-                        // Update Chrome storage with the new site and reload the page
+                    let urls = retrieved_data.data ? JSON.parse(retrieved_data.data) : [];
+                    data.map(url => {
+
+                        urls.push(url);
+                        urls = uniqueArray(urls);
+
                         chrome.storage.local.set({
-                            data: JSON.stringify(data)
+                            data: JSON.stringify(urls)
                         }, () => {
+                            document.querySelector(".new-site").style.display = "none";
                             location.reload();
                         });
-                    });
+                    })
+
                 });
                 document.querySelector(".loader").style.display = "none";
             })
@@ -157,6 +171,14 @@ chrome.storage.local.get("install", function (retrieved_data) {
                 document.querySelector(".loader").style.display = "none";
                 console.log(error);
             });
+    });
+}
+
+// Init
+chrome.storage.local.get("install", function (retrieved_data) {
+    if (!retrieved_data.install) {
+        document.querySelector(".loader").style.display = "block";
+        updateData();
     }
 });
 
@@ -164,6 +186,28 @@ chrome.storage.local.get("install", function (retrieved_data) {
 document.querySelector(".update").addEventListener("click", () => {
     if (confirm("Are you sure to get the latest list of blocked sites from the server?")) {
         document.querySelector(".loader").style.display = "block";
-
+        updateData();
     }
 })
+
+// Pause Service
+document.querySelector("#pause").addEventListener("click", () => {
+    chrome.storage.local.get("data", function (retrieved_data) {
+        let urls = retrieved_data.data ? JSON.parse(retrieved_data.data) : [];
+
+        chrome.storage.local.get("tmp", function (retrieved_data) {
+            let urlsTmp = retrieved_data.tmp ? JSON.parse(retrieved_data.tmp) : [];
+
+            if (!urls.length && !urlsTmp.length)
+                return alert("There are no restrictions")
+
+            chrome.storage.local.set({
+                data: urls.length ? JSON.stringify([]) : JSON.stringify(urlsTmp),
+                tmp: urlsTmp.length ? JSON.stringify([]) : JSON.stringify(urls),
+            }, () => {
+                location.reload();
+            });
+
+        });
+    });
+});

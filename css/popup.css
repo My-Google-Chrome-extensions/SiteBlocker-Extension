@@ -19,6 +19,17 @@ html body .header > div {
 }
 html body .header > div h1 {
   margin-right: 8px;
+  line-height: 31px;
+}
+html body .header #pause {
+  padding: 0 8px;
+  background-color: #F44336;
+  border: none;
+  color: #ffffff;
+  border-radius: 5px;
+  cursor: pointer;
+  height: 25px;
+  font-size: 13px;
 }
 html body .toolbar {
   margin-top: 20px;
@@ -33,15 +44,15 @@ html body .toolbar .update {
   color: #ffffff;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 15px;
+  font-size: 13px;
   display: flex;
-  width: 31px;
-  height: 31px;
+  height: 25px;
   justify-content: center;
   align-items: center;
+  padding: 0 5px;
 }
 html body .toolbar .update img {
-  width: 25px;
+  width: 16px;
 }
 html body .loader {
   display: none;
@@ -123,7 +134,7 @@ html body .new-site > div #close {
 }
 html body .add-new-site {
   padding: 0 10px;
-  background-color: #F44336;
+  background-color: #4CAF50;
   border: none;
   color: #ffffff;
   border-radius: 5px;

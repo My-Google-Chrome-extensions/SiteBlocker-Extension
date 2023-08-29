@@ -19,7 +19,19 @@ html {
 
         h1 {
           margin-right: 8px;
+          line-height: 31px;
         }
+      }
+
+      #pause {
+        padding: 0 8px;
+        background-color: #F44336;
+        border: none;
+        color: #ffffff;
+        border-radius: 5px;
+        cursor: pointer;
+        height: 25px;
+        font-size: 13px;
       }
     }
 
@@ -36,15 +48,15 @@ html {
         color: #ffffff;
         border-radius: 5px;
         cursor: pointer;
-        font-size: 15px;
+        font-size: 13px;
         display: flex;
-        width: 31px;
-        height: 31px;
+        height: 25px;
         justify-content: center;
         align-items: center;
+        padding: 0 5px;
 
         img {
-          width: 25px;
+          width: 16px;
         }
       }
     }
@@ -139,7 +151,7 @@ html {
 
     .add-new-site {
       padding: 0 10px;
-      background-color: #F44336;
+      background-color: #4CAF50;
       border: none;
       color: #ffffff;
       border-radius: 5px;
