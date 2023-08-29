@@ -130,3 +130,31 @@ document.querySelector("#add").addEventListener("click", () => {
         });
     });
 });
+
+// Init
+chrome.storage.local.get("install", function (retrieved_data) {
+    if (!retrieved_data.install) {
+        document.querySelector(".loader").style.display = "block";
+        fetch("https://raw.githubusercontent.com/My-Google-Chrome-extensions/SiteBlocker-Extension/main/rules.json")
+            .then(response => response.json())
+            .then(data => {
+                chrome.storage.local.set({
+                    install: "1"
+                }, () => {
+                    chrome.storage.local.get("data", function (retrieved_data) {
+                        // Update Chrome storage with the new site and reload the page
+                        chrome.storage.local.set({
+                            data: JSON.stringify(data)
+                        }, () => {
+                            location.reload();
+                        });
+                    });
+                });
+                document.querySelector(".loader").style.display = "none";
+            })
+            .catch(error => {
+                document.querySelector(".loader").style.display = "none";
+                console.log(error);
+            });
+    }
+});
