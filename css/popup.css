@@ -6,6 +6,24 @@ html body {
   min-height: 10rem;
   padding: 0 15px;
 }
+html body .loader {
+  display: none;
+  border: 4px solid #d1d1d1;
+  border-top: 4px solid #F44336;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  margin: 15px auto;
+  animation: spin 2s linear infinite;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 html body h2 {
   margin: 5px 0;
   font-weight: 400;
