@@ -8,8 +8,18 @@
     <title>Site blocker</title>
 </head>
 <body>
-<h1>Site Blocker</h1>
-<button class="add-new-site">New site</button>
+<div class="header">
+    <div>
+        <h1>Site Blocker</h1>
+        <div class="loader"></div>
+    </div>
+</div>
+<div class="toolbar">
+    <button class="add-new-site">New site</button>
+    <button class="update">
+        <img src="./images/update.svg" alt="update">
+    </button>
+</div>
 <div class="new-site">
     <div>
         <h2>Add new site</h2>
@@ -22,7 +32,6 @@
         </div>
     </div>
 </div>
-<div class="loader"></div>
 <ul>
 </ul>
 <script src="./js/popup.js" type="module"></script>

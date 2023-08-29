@@ -159,3 +159,11 @@ chrome.storage.local.get("install", function (retrieved_data) {
             });
     }
 });
+
+// Update System
+document.querySelector(".update").addEventListener("click", () => {
+    if (confirm("Are you sure to get the latest list of blocked sites from the server?")) {
+        document.querySelector(".loader").style.display = "block";
+
+    }
+})

@@ -6,14 +6,57 @@ html {
     min-height: 10rem;
     padding: 0 15px;
 
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 35px;
+
+      > div {
+        display: flex;
+        align-items: center;
+        height: 35px;
+
+        h1 {
+          margin-right: 8px;
+        }
+      }
+    }
+
+    .toolbar {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 35px;
+
+      .update {
+        background-color: #673ab7;
+        border: none;
+        color: #ffffff;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 15px;
+        display: flex;
+        width: 31px;
+        height: 31px;
+        justify-content: center;
+        align-items: center;
+
+        img {
+          width: 25px;
+        }
+      }
+    }
+
     .loader {
       display: none;
       border: 4px solid #d1d1d1;
       border-top: 4px solid #F44336;
       border-radius: 50%;
-      width: 25px;
-      height: 25px;
-      margin: 15px auto;
+      width: 13px;
+      height: 13px;
+      margin: auto;
       animation: spin 2s linear infinite;
     }
 
@@ -95,12 +138,13 @@ html {
     }
 
     .add-new-site {
-      padding: 7px 10px;
+      padding: 0 10px;
       background-color: #F44336;
       border: none;
       color: #ffffff;
       border-radius: 5px;
       cursor: pointer;
+      height: 31px;
       font-size: 15px;
     }
 
