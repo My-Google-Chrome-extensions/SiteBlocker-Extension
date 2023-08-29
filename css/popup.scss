@@ -1,0 +1,117 @@
+html {
+  margin: 0;
+
+  body {
+    width: 20rem;
+    min-height: 10rem;
+    padding: 0 15px;
+
+    h2 {
+      margin: 5px 0;
+      font-weight: 400;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .new-site {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.67);
+      justify-content: center;
+      align-items: center;
+
+      > div {
+        width: 80%;
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+        background-color: #ffffff;
+        border-radius: 8px;
+
+        label {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+
+          input {
+            border-radius: 5px;
+            border: 1px solid #cdcdcd;
+            font-size: 16px;
+            display: flex;
+            height: 35px;
+            padding: 0 15px;
+            margin: 5px 0 0;
+          }
+        }
+
+        #add {
+          margin-top: 10px;
+          padding: 10px 20px;
+          background-color: #3f51b5;
+          border: none;
+          color: #ffffff;
+          border-radius: 5px;
+          cursor: pointer;
+        }
+
+        #close {
+          position: absolute;
+          top: 3px;
+          right: 3px;
+          font-size: 18px;
+          background: transparent;
+          border: none;
+        }
+      }
+    }
+
+    .add-new-site {
+      padding: 7px 10px;
+      background-color: #F44336;
+      border: none;
+      color: #ffffff;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 15px;
+    }
+
+    ul {
+      padding: 0;
+      list-style: none;
+      margin-bottom: 25px;
+      margin-top: 20px;
+      max-height: 15rem;
+      overflow-y: auto;
+
+      li {
+        padding: 10px 10px;
+        display: flex;
+        justify-content: space-between;
+        background: #f3f3f3;
+
+        span {
+          font-size: 14px;
+        }
+
+        button {
+          background-color: transparent;
+          border: none;
+        }
+
+        &:nth-child(even) {
+          background: #e5e5e5;
+        }
+      }
+    }
+  }
+}
+
