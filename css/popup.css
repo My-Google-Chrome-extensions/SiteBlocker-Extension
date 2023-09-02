@@ -158,6 +158,9 @@ html body ul li {
 }
 html body ul li span {
   font-size: 14px;
+  max-width: 90%;
+  overflow: hidden;
+  overflow-wrap: anywhere;
 }
 html body ul li button {
   background-color: transparent;
