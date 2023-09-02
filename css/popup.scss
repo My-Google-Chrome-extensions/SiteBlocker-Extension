@@ -176,6 +176,9 @@ html {
 
         span {
           font-size: 14px;
+          max-width: 90%;
+          overflow: hidden;
+          overflow-wrap: anywhere;
         }
 
         button {
