@@ -1,4 +1,6 @@
 [
+  "next-api.bale.ai/bale.advertisement.v1.Advertisement",
+  "next-api.bale.ai/bale.story.v1.Story/GetMostPopularStories",
   "yektanet.com",
   "kaprila.com",
   "click.digiato.com",
