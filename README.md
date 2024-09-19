@@ -1,22 +1,8 @@
-﻿# مسدود کردن سرویس های رصد کاربران یا تبلیغاتی
-هدف از این اکستنشن بلاک کردن کامل سرویس های تبلیغاتی و هر گونه سایتی که شما رو رصد میکنه می باشد.
+﻿# Blocking User Tracking and Advertising Services
+The purpose of this extension is to completely block advertising services and any sites that track you.
 
-اگر وبسایتی رو پیشنهاد دارید ممنون میشم اون رو برام بفرستید از [اینجا](https://github.com/My-Google-Chrome-extensions/SiteBlocker-Extension/issues/new/choose)
+The difference between this service and adblock is that this extension prevents these sites from loading at their core, ensuring that no statistical data about you is accessible to these websites anymore.
 
-تفاوت این سرویس با adblock این می باشد که این اکستنشن از ریشه اجازه لود شدن این سایت ها رو نخواهد داد تا دیگر هیچ گونه داده آماری از شما کاربران در دسترس این وبسایت ها نباشد.
+If you have any website suggestions, please feel free to submit them [here](https://github.com/My-Google-Chrome-extensions/SiteBlocker-Extension/issues/new/choose).
 
 ![Screenshot](https://raw.githubusercontent.com/My-Google-Chrome-extensions/AdBlocker-Extension/master/screenshot.png)
-
-### آموزش نصب
-
-.ابتدا پروژه را دانلود کنید از بخش [releases](https://github.com/My-Google-Chrome-extensions/AdBlocker-Extension/releases) و در جای مناسب اکسترک کنید
-سپس مرورگر کروم را باز کنید و به لینک 
-
-[chrome://extensions/](chrome://extensions/)
-
-برروید و مانند تصاویر زیر عمل کنید
-
-![Screenshot](https://raw.githubusercontent.com/My-Google-Chrome-extensions/AdBlocker-Extension/master/2.png)
-![Screenshot](https://raw.githubusercontent.com/My-Google-Chrome-extensions/AdBlocker-Extension/master/3.png)
-
-_سپس محل فولدر پروژه را وارد کنید و لذت ببرید._
